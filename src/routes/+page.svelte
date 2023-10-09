@@ -63,6 +63,12 @@
 
 <main>
     <h1>El FINO</h1>
+    <h1  style="color:red">{Math.floor((Math.random() * (20000 - 500 + 1)) + 500)}</h1>
+    {#if scanning}
+        <button on:click={stop}>Detener</button>
+    {:else}
+        <button on:click={start}>Ver precio</button>
+    {/if}
     <reader id="reader"/>
     <h3>
         {codigo}
@@ -72,14 +78,7 @@
         El precio es:
     </h2>
 
-    <p>Cuaderno</p>
 
-    <h1  style="color:red">{Math.floor((Math.random() * (20000 - 500 + 1)) + 500)}</h1>
-    {#if scanning}
-        <button on:click={stop}>Dejar de leer</button>
-    {:else}
-        <button on:click={start}>Leer</button>
-    {/if}
 </main>
 
 
