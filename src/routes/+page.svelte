@@ -6,7 +6,7 @@
 
     let html5Qrcode
 
-    let codigo;
+    let codigo = "nada";
 
     onMount(init)
 
@@ -33,7 +33,7 @@
     }
 
     function onScanSuccess(decodedText, decodedResult) {
-        //alert(`Code matched = ${decodedText}`)
+        alert(`Code matched = ${decodedText}`)
         codigo = decodedText
         console.log(decodedResult)
     }
@@ -52,7 +52,7 @@
         gap: 20px;
     }
     reader {
-        width: 100%;
+        width: 80%;
         min-height: 500px;
         background-color: black;
     }
