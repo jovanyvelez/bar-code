@@ -48,7 +48,7 @@
 <main>
 	<h1>El FINO</h1>
     {#key codigo}
-	    <h1 style="color:red">{Math.floor(Math.random() * (20000 - 500 + 1) + 500)}</h1>
+	    <h1 style="color:blue">{Math.floor(Math.random() * (20000 - 500 + 1) + 500)}</h1>
     {/key}
 	{#if scanning}
 		<button on:click={stop}>Detener</button>
