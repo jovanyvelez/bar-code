@@ -36,6 +36,8 @@
         //alert(`Code matched = ${decodedText}`)
         codigo = decodedText
         console.log(decodedResult)
+        stop
+
     }
 
     function onScanFailure(error) {
