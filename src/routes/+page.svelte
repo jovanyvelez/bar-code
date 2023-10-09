@@ -33,7 +33,7 @@
     }
 
     function onScanSuccess(decodedText, decodedResult) {
-        alert(`Code matched = ${decodedText}`)
+        //alert(`Code matched = ${decodedText}`)
         codigo = decodedText
         console.log(decodedResult)
     }
@@ -52,18 +52,24 @@
         gap: 20px;
     }
     reader {
-        width: 80%;
-        min-height: 500px;
+        width: 100%;
+        min-height: 300px;
         background-color: black;
     }
 </style>
 
 <main>
-    <h1>Andres, leo codigo de barras</h1>
+    <h1>El FINO</h1>
     <reader id="reader"/>
-    <h1>
+    <h3>
         {codigo}
-    </h1>
+    </h3>
+
+    <h2>
+        Cuaderno Jean book
+    </h2>
+
+    <h1>$ 17000</h1>
     {#if scanning}
         <button on:click={stop}>Dejar de leer</button>
     {:else}
