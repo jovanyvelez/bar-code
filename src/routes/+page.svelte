@@ -32,11 +32,12 @@
         scanning = false
     }
 
-    function onScanSuccess(decodedText, decodedResult) {
+    async function onScanSuccess(decodedText, decodedResult) {
         //alert(`Code matched = ${decodedText}`)
         codigo = decodedText
         console.log(decodedResult)
-        stop
+        await html5Qrcode.stop()
+        scanning = false
 
     }
 
@@ -80,5 +81,7 @@
         <button on:click={start}>Leer</button>
     {/if}
 </main>
+
+
 
 
