@@ -47,19 +47,18 @@
 
 <main>
 	<h1>El FINO</h1>
-    {#key codigo}
-	    <h1 style="color:blue">$ {Math.floor(Math.random() * (20000 - 500 + 1) + 500)}</h1>
-    {/key}
+
 	{#if scanning}
-		<button on:click={stop}>Detener</button>
+    <button on:click={stop}>Detener</button>
 	{:else}
-		<button on:click={start}>Ver precio</button>
+    <button on:click={start}>Ver precio</button>
 	{/if}
 	<reader id="reader" />
 	{#key codigo}
-		<h3>
-			{codigo}
-		</h3>
+        <h3>
+            {codigo}
+        </h3>
+        <h1 style="color:blue">$ {Math.floor(Math.random() * (20000 - 500 + 1) + 500)}</h1>
 	{/key}
 
 </main>
