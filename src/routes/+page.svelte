@@ -6,7 +6,7 @@
 
     let html5Qrcode
 
-    let codigo = "nada";
+    let codigo = "";
 
     onMount(init)
 
@@ -66,10 +66,12 @@
     </h3>
 
     <h2>
-        Cuaderno Jean book
+        El precio es:
     </h2>
 
-    <h1>$ 17000</h1>
+    <p>Cuaderno</p>
+
+    <h1  style="color:red">{Math.floor((Math.random() * (20000 - 500 + 1)) + 500)}</h1>
     {#if scanning}
         <button on:click={stop}>Dejar de leer</button>
     {:else}
