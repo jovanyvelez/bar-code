@@ -62,7 +62,6 @@
 		</h3>
 	{/key}
 
-	<h2>El precio es:</h2>
 </main>
 
 <style>
