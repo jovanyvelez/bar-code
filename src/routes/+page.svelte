@@ -6,6 +6,8 @@
 
     let html5Qrcode
 
+    let codigo;
+
     onMount(init)
 
     function init() {
@@ -31,7 +33,8 @@
     }
 
     function onScanSuccess(decodedText, decodedResult) {
-        alert(`Code matched = ${decodedText}`)
+        //alert(`Code matched = ${decodedText}`)
+        codigo = decodedText
         console.log(decodedResult)
     }
 
@@ -56,11 +59,15 @@
 </style>
 
 <main>
+    <h1>Andres, leo codigo de barras</h1>
     <reader id="reader"/>
+    <h1>
+        {codigo}
+    </h1>
     {#if scanning}
-        <button on:click={stop}>stop</button>
+        <button on:click={stop}>Dejar de leer</button>
     {:else}
-        <button on:click={start}>start</button>
+        <button on:click={start}>Leer</button>
     {/if}
 </main>
 
