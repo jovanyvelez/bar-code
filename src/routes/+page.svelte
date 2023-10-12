@@ -1,14 +1,14 @@
 <script>
-	import sound from '$lib/Beep-sound.mp3'
+	import sound from '$lib/Beep-sound.mp3';
 	import { Html5Qrcode } from 'html5-qrcode';
 	import { onMount } from 'svelte';
 
 	let scanning = false;
 
-// @ts-ignore
+	// @ts-ignore
 	let audio;
 
-// @ts-ignore
+	// @ts-ignore
 	let html5Qrcode;
 
 	let codigo = '';
@@ -21,7 +21,10 @@
 
 	function start() {
 		// @ts-ignore
-		
+		codigo = '';
+		if (!html5Qrcode) {
+			html5Qrcode = new Html5Qrcode('reader');
+		}
 		html5Qrcode.start(
 			{ facingMode: 'environment' },
 			{
@@ -59,11 +62,7 @@
 	}
 
 	function startTimer() {
-		audio.play()
-		/*setTimeout(() => {
-			// @ts-ignore
-			audio.play()
-		},1000)*/	
+		audio.play();
 	}
 </script>
 
@@ -71,22 +70,25 @@
 	<h1>El FINO</h1>
 
 	{#if scanning}
-    <button on:click={stop}>Detener</button>
+		<button on:click={stop}>Detener</button>
 	{:else}
-    <button on:click={start}>Ver precio</button>
+		<button on:click={start}>Ver precio</button>
+		{#key codigo}
+			{#if codigo !== ''}
+				<p style="color:blue">$ {Math.floor(Math.random() * (20000 - 500 + 1) + 500)}</p>
+				<p>
+					{codigo}
+				</p>
+			{/if}
+		{/key}
 	{/if}
-	<reader id="reader" />
-	{#key codigo}
-        <h3>
-            {codigo}
-        </h3>
-        <h1 style="color:blue">$ {Math.floor(Math.random() * (20000 - 500 + 1) + 500)}</h1>
-	{/key}
+
+	<reader class={scanning ? 'a' : 'b'} id="reader" />
+
 	<!--button on:click={startTimer}>
 		start 2s timer
 	</button-->
-	<audio src={sound} bind:this={audio}></audio>
-
+	<audio src={sound} bind:this={audio} />
 </main>
 
 <style>
@@ -102,5 +104,12 @@
 		min-height: 300px;
 		background-color: black;
 	}
-	
+
+	.a {
+		visibility: visible;
+	}
+
+	.b {
+		visibility: hidden;
+	}
 </style>
